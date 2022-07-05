@@ -37,6 +37,10 @@ app.layout = html.Div(children=[
                 dcc.Input(id='SingleFam', value=0, type='number', min=0, max=1, step=1),
                 html.Div('Large Neighborhood:'),
                 dcc.Input(id='LargeNeighborhood', value=0, type='number', min=0, max=1, step=1),
+                html.Div('Pool Area:'),
+                dcc.Input(id='PoolArea', value=0, type='number', min=0, max=1000, step=1),
+                html.Div('Garage Cars:'),
+                dcc.Input(id='GarageCars', value=0, type='number', min=0, max=10, step=1),
 
             ], className='four columns'),
             html.Div([
@@ -77,14 +81,16 @@ app.layout = html.Div(children=[
     State(component_id='BedroomAbvGr', component_property='value'),
     State(component_id='TotalSF', component_property='value'),
     State(component_id='SingleFam', component_property='value'),
-    State(component_id='LargeNeighborhood', component_property='value')
+    State(component_id='LargeNeighborhood', component_property='value'),
+    State(component_id='PoolArea', component_property='value'),
+    State(component_id='GarageCars', component_property='value')
 
 )
-def ames_lr_function(clicks, YearBuilt,Bathrooms,BedroomAbvGr,TotalSF,SingleFam,LargeNeighborhood):
+def ames_lr_function(clicks, YearBuilt,Bathrooms,BedroomAbvGr,TotalSF,SingleFam,LargeNeighborhood,PoolArea, GarageCars):
     if clicks==0:
         return "waiting for inputs"
     else:
-        y = [-1360501.3809 + 704.4287*YearBuilt + 12738.4775*Bathrooms + -7783.1712*BedroomAbvGr + 49.824*TotalSF+ 25282.091*SingleFam+ -6637.2636*LargeNeighborhood]
+        y = [-1046913.3397 + 536.5981*YearBuilt + 9836.972*Bathrooms + -6593.6433*BedroomAbvGr + 44.7152*TotalSF+ 24302.5043*SingleFam+ -7861.3582*LargeNeighborhood + -90.02735832*PoolArea + 19406.21661266*GarageCars]
         formatted_y = "${:,.2f}".format(y[0])
         return formatted_y
 
