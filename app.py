@@ -61,7 +61,7 @@ app.layout = html.Div(children=[
     html.Br(),
     html.Br(),
     html.H4('Regression Equation:'),
-    html.Div('Predicted Price = (- $1,360.5K Baseline) + ($0.7K * Year Built) + ($12.7K * Bathrooms) + (- $7.7K * Bedrooms) + ($0.049K * Total Square Feet) + ($ 25.2K * Single Family Home) + (- $6.6 K * Large Neighborhood)'),
+    html.Div('[-1046913.3397 + 536.5981*YearBuilt + 9836.972*Bathrooms + -6593.6433*BedroomAbvGr + 44.7152*TotalSF+ 24302.5043*SingleFam+ -7861.3582*LargeNeighborhood + -90.02735832*PoolArea + 19406.21661266*GarageCars]'),
     html.Br(),
     html.A('Google Spreadsheet', href='https://docs.google.com/spreadsheets/d/1q2ustRvY-GcmPO5NYudvsBEGNs5Na5p_8LMeS4oM35U/edit?usp=sharing'),
     html.Br(),
